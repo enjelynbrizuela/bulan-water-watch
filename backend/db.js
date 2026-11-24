@@ -3,12 +3,12 @@ require('dotenv').config();
 
 const mysql = require('mysql2/promise');
 
-if (!process.env.DATABASE_URL) {
-    throw new Error('DATABASE_URL is missing in Railway Variables');
+if (!process.env.MYSQL_URL) {
+    throw new Error('MYSQL_URL is missing in Railway Variables');
 }
 
 const pool = mysql.createPool(
-    process.env.DATABASE_URL
+    process.env.MYSQL_URL
 );
 
 module.exports = pool;
