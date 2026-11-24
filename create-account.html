@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Watch | Create Account</title>
+
+    <link rel="stylesheet" href="css/create-account.css">
+</head>
+<body>
+
+    <div class="container">
+
+       <header class="header">
+    <p class="brand">BULAN WATER WATCH</p>
+    <h1>Create Account</h1>
+</header>
+
+        <main class="content">
+
+            <form id="registerForm">
+
+                <div class="form-group">
+                    <label for="fullname">Full name</label>
+                    <input
+                        type="text"
+                        id="fullname"
+                        placeholder="Your full name"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@example.com"
+                        required>
+                </div>
+
+                <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="09XXXXXXXXX"
+        maxlength="11"
+        pattern="09[0-9]{9}"
+        inputmode="numeric"
+        required>
+</div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        Confirm password
+                    </label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Re-enter your password"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label>I am a</label>
+
+                    <div class="role-options">
+
+                        <button
+                            type="button"
+                            class="role-btn active"
+                            data-role="Customer">
+                            Customer
+                        </button>
+
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Create account
+                </button>
+
+            </form>
+
+            <p class="login-text">
+                Already have an account?
+                <a href="login.html">Sign in</a>
+            </p>
+
+        </main>
+
+    </div>
+
+    <div class="modal-overlay" id="successModal">
+
+        <div class="modal-box">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Account Created!</h2>
+
+            <p>
+                Your Water Watch account has been created
+                successfully.
+            </p>
+
+            <a href="login.html" class="modal-btn">
+                Continue to Sign in
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="modal-overlay" id="errorModal">
+
+        <div class="modal-box">
+
+            <div class="error-icon">!</div>
+
+            <h2>Registration Failed</h2>
+
+            <p id="errorMessage">
+                Please check your information.
+            </p>
+
+            <button class="modal-btn" id="closeError">
+                Try Again
+            </button>
+
+        </div>
+
+    </div>
+     <script src="js/create-account.js"></script>
+
+</body>
+</html>

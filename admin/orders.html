@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#075477">
+
+    <title>Water-Watch | Orders</title>
+
+    <link rel="stylesheet" href="css/orders.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    <i class="fa-solid fa-droplet"></i>
+                </div>
+
+                <div class="brand-text">
+                    <h2>WATER-WATCH</h2>
+                    <span>Admin Portal</span>
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Toggle navigation menu"
+                aria-controls="navMenu"
+                aria-expanded="false">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+         <nav class="nav-menu" id="navMenu">
+
+            <a href="dashboard.html" class="nav-link">
+
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+
+            </a>
+
+            <a href="orders.html" class="nav-link active">
+
+                <i class="fa-solid fa-clipboard-list"></i>
+                <span>Orders</span>
+
+            </a>
+
+        </nav>
+
+         <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                class="nav-link logout-btn"
+                id="logoutBtn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+     <main class="main-content">
+
+         <section class="filter-section">
+
+            <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search customer or order ID..."
+                    autocomplete="off">
+
+            </div>
+
+            <div class="filter-box">
+
+                <select id="stationFilter">
+
+                    <option value="all">All Water Stations</option>
+
+                    <option value="Forest Water Refiling Station">
+                        Forest Water Refiling Station
+                    </option>
+
+                    <option value="Fairways Purified Water Station">
+                        Fairways Purified Water Station
+                    </option>
+
+                    <option value="Summer Water Refilling Station">
+                        Summer Water Refilling Station
+                    </option>
+
+                    <option value="Yhel Pure Purified Water">
+                        Yhel Pure Purified Water
+                    </option>
+
+                    <option value="Uncle J Purified Water Station">
+                        Uncle J Purified Water Station
+                    </option>
+
+                    <option value="Viva Mari Water Station">
+                        Viva Mari Water Station
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+         <section class="orders-section">
+
+            <div id="stationOrdersContainer"></div>
+
+        </section>
+
+    </main>
+
+
+     <div class="modal-overlay" id="detailsModal">
+
+        <div class="modal-box details-box">
+
+            <div class="modal-header">
+
+                <h2>Order Details</h2>
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeDetailsBtn"
+                    aria-label="Close order details">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+            <div class="modal-body" id="detailsContent"></div>
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    id="closeDetailsFooterBtn">
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+     <div class="modal-overlay" id="confirmModal">
+
+        <div class="modal-box confirm-box">
+
+            <div class="confirm-icon" id="confirmIcon">
+
+                <i class="fa-solid fa-circle-question"></i>
+
+            </div>
+
+            <h2 id="confirmTitle">Confirm Action</h2>
+
+            <p id="confirmMessage">Are you sure?</p>
+
+            <div class="confirm-buttons">
+
+                <button
+                    type="button"
+                    class="secondary-btn"
+                    id="cancelActionBtn">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    id="confirmActionBtn">
+
+                    Confirm
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+     <div class="modal-overlay" id="successModal">
+
+        <div class="modal-box success-box">
+
+            <div class="success-icon">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+            </div>
+
+            <h2 id="successTitle">Success</h2>
+
+            <p id="successMessage">
+                Action completed successfully.
+            </p>
+
+            <button
+                type="button"
+                class="primary-btn success-close-btn"
+                id="successCloseBtn">
+
+                Continue
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+     <div class="logout-modal-overlay" id="logoutModal">
+
+        <div class="logout-modal">
+
+            <div class="logout-modal-icon">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+            </div>
+
+            <h2>Confirm Logout</h2>
+
+            <p>
+                Are you sure you want to logout from your admin account?
+            </p>
+
+            <div class="logout-modal-buttons">
+
+                <button
+                    type="button"
+                    class="cancel-logout-btn"
+                    id="cancelLogoutBtn">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="button"
+                    class="confirm-logout-btn"
+                    id="confirmLogoutBtn">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+     <script>
+
+        const sidebar = document.getElementById("sidebar");
+
+        const mobileMenuBtn =
+            document.getElementById("mobileMenuBtn");
+
+
+        function closeMobileMenu() {
+
+            sidebar.classList.remove("menu-open");
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            mobileMenuBtn.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
+            mobileMenuBtn.innerHTML =
+                '<i class="fa-solid fa-bars"></i>';
+
+        }
+
+
+        mobileMenuBtn.addEventListener("click", function () {
+
+            const isOpen =
+                sidebar.classList.toggle("menu-open");
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            mobileMenuBtn.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+
+            mobileMenuBtn.innerHTML = isOpen
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-bars"></i>';
+
+        });
+
+
+        document.querySelectorAll("#navMenu .nav-link").forEach(link => {
+
+            link.addEventListener("click", closeMobileMenu);
+
+        });
+
+
+        document.addEventListener("click", function (event) {
+
+            if (
+                window.innerWidth <= 600 &&
+                !sidebar.contains(event.target)
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+        });
+
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+                closeMobileMenu();
+            }
+
+        });
+
+
+        window.addEventListener("resize", function () {
+
+            if (window.innerWidth > 600) {
+                closeMobileMenu();
+            }
+
+        });
+
+    </script>
+
+
+     <script src="../js/api.js"></script>
+    <script src="js/orders.js"></script>
+
+</body>
+</html>

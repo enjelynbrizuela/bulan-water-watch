@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bulan Water Watch | Create Group Order</title>
+
+    <link rel="stylesheet" href="css/create-group-order.css">
+</head>
+
+<body>
+
+    <main class="app-container">
+
+         <header class="app-header">
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                type="button"
+                aria-label="Open menu"
+                aria-controls="sideMenu"
+                aria-expanded="false">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+            <div class="header-brand">
+                <h2>BULAN WATER WATCH</h2>
+                <p>BULAN, SORSOGON</p>
+            </div>
+
+        </header>
+
+         <div class="page-title">
+            <h1>Create a Group Order</h1>
+        </div>
+
+         <form id="groupOrderForm">
+
+            <div class="form-group">
+
+                <label for="station">Select Water Station</label>
+
+                <select id="station" required>
+                    <option value="">Loading water stations...</option>
+                </select>
+
+            </div>
+
+             <div class="price-box">
+
+                <span>Price per gallon</span>
+
+                <h2 id="priceDisplay">₱0.00</h2>
+
+            </div>
+
+             <div class="form-group">
+
+                <label>Order Type</label>
+
+                <div class="order-options">
+
+                    <label class="option-card">
+
+                        <input
+                            type="radio"
+                            name="orderType"
+                            value="Pickup"
+                            checked
+                        >
+
+                        <span>Pickup</span>
+
+                    </label>
+
+                    <label class="option-card">
+
+                        <input
+                            type="radio"
+                            name="orderType"
+                            value="Delivery"
+                        >
+
+                        <span>Delivery</span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+             <div class="form-group">
+
+                <label for="deadline">Order Deadline</label>
+
+                <input
+                    type="datetime-local"
+                    id="deadline"
+                    required
+                >
+
+            </div>
+
+             <div class="form-group">
+
+                <label for="minimumGallons">Minimum Gallons</label>
+
+                <input
+                    type="number"
+                    id="minimumGallons"
+                    min="1"
+                    max="100"
+                    value="5"
+                    required
+                >
+
+            </div>
+
+             <div class="form-group">
+
+                <label for="maxParticipants">Maximum Participants</label>
+
+                <input
+                    type="number"
+                    id="maxParticipants"
+                    min="2"
+                    max="50"
+                    value="10"
+                    required
+                >
+
+            </div>
+
+             <div class="form-group">
+
+                <label for="notes">Additional Notes (Optional)</label>
+
+                <textarea
+                    id="notes"
+                    rows="3"
+                    placeholder="Enter additional instructions..."
+                ></textarea>
+
+            </div>
+
+             <button type="submit" class="create-btn">
+                Create Group Order
+            </button>
+
+            <a href="group-orders.html" class="back-btn">
+                Cancel
+            </a>
+
+        </form>
+
+    </main>
+
+     <div class="menu-overlay" id="menuOverlay"></div>
+
+     <aside class="side-menu" id="sideMenu">
+
+        <div class="menu-header">
+
+            <div class="menu-brand">
+
+                <div class="menu-logo">
+
+                    <svg viewBox="0 0 64 64"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <path
+                            d="M32 4 C25 17 12 29 12 40
+                            C12 51 21 60 32 60
+                            C43 60 52 51 52 40
+                            C52 29 39 17 32 4Z"
+                            fill="#55BFCB"
+                        />
+
+                        <path
+                            d="M19 41 C25 35 31 47 38 41
+                            C43 37 47 39 49 40"
+                            fill="none"
+                            stroke="#fff"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                        />
+
+                    </svg>
+
+                </div>
+
+                <h2>BULAN WATER WATCH</h2>
+                <p>BULAN, SORSOGON</p>
+
+            </div>
+
+            <button
+                class="close-menu"
+                id="closeMenu"
+                type="button"
+                aria-label="Close menu">
+
+                &times;
+
+            </button>
+
+        </div>
+
+         <nav class="menu-links">
+
+            <a href="compare.html" class="menu-link">
+                Compare Prices
+            </a>
+
+            <a href="group-orders.html" class="menu-link active">
+                Group Orders
+            </a>
+
+            <a href="my-orders.html" class="menu-link">
+                My Orders
+            </a>
+
+            <a href="profile.html" class="menu-link">
+                Profile
+            </a>
+
+        </nav>
+
+        <div class="menu-footer">
+            Bulan Water-Watch
+        </div>
+
+    </aside>
+
+     <div class="modal-overlay" id="successModal">
+
+        <div class="modal-box">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Group Created!</h2>
+
+            <p id="successMessage">
+                Your group order has been created successfully.
+            </p>
+
+            <button
+                type="button"
+                id="successContinue"
+                class="modal-btn">
+
+                Continue
+
+            </button>
+
+        </div>
+
+    </div>
+
+     <div class="modal-overlay" id="errorModal">
+
+        <div class="modal-box">
+
+            <div class="error-icon">!</div>
+
+            <h2>Invalid Information</h2>
+
+            <p id="errorMessage">
+                Please check your information.
+            </p>
+
+            <button
+                type="button"
+                id="closeError"
+                class="modal-btn">
+
+                Try Again
+
+            </button>
+
+        </div>
+
+    </div>
+
+     <script>
+        const menuButton = document.getElementById("menuButton");
+        const closeMenu = document.getElementById("closeMenu");
+        const sideMenu = document.getElementById("sideMenu");
+        const menuOverlay = document.getElementById("menuOverlay");
+
+        function openMenu() {
+            sideMenu.classList.add("show");
+            menuOverlay.classList.add("show");
+            document.body.classList.add("menu-open");
+
+            menuButton.setAttribute("aria-expanded", "true");
+        }
+
+        function hideMenu() {
+            sideMenu.classList.remove("show");
+            menuOverlay.classList.remove("show");
+            document.body.classList.remove("menu-open");
+
+            menuButton.setAttribute("aria-expanded", "false");
+        }
+
+        menuButton.addEventListener("click", openMenu);
+        closeMenu.addEventListener("click", hideMenu);
+        menuOverlay.addEventListener("click", hideMenu);
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                hideMenu();
+            }
+        });
+    </script>
+
+     <script src="js/create-group-order.js"></script>
+
+</body>
+</html>

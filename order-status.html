@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Watch | My Orders</title>
+    <link rel="stylesheet" href="css/order-status.css">
+</head>
+<body>
+
+    <header class="header">
+        <p>Water Watch · Bulan, Sorsogon</p>
+        <h1>My Orders</h1>
+    </header>
+
+    <main class="content">
+
+         <section id="ordersList">
+            <p>Loading your orders...</p>
+        </section>
+
+         <section id="selectedOrder" style="display: none;">
+
+
+            <div class="order-card">
+                <p class="label">Order Reference</p>
+                <h2 id="selectedReference">---</h2>
+
+                <p id="selectedDetails"></p>
+
+                <div class="selected-status">
+                    <p class="label">Current Status</p>
+                    <span id="selectedStatus" class="status-badge"></span>
+                </div>
+            </div>
+
+            <section class="progress-card">
+                <h3>Order Progress</h3>
+
+                <div class="progress-step" data-status="open">
+                    <span class="step-dot"></span>
+                    <p>Open · Group is collecting</p>
+                </div>
+
+                <div class="progress-step" data-status="confirmation">
+                    <span class="step-dot"></span>
+                    <p>Confirmation · Waiting for admin approval</p>
+                </div>
+
+                <div class="progress-step" data-status="completed">
+                    <span class="step-dot"></span>
+                    <p>Completed · Approved / Delivered</p>
+                </div>
+
+                <div class="rejected-status" id="rejectedStatus">
+                    <span class="step-dot"></span>
+                    <p>Rejected · Order declined by admin</p>
+                </div>
+            </section>
+
+            <section class="participants-card">
+                <h3>Participants</h3>
+                <div id="participantsList">
+                    <p>Loading participants...</p>
+                </div>
+            </section>
+
+            <button
+                type="button"
+                class="cancel-btn"
+                id="cancelParticipation"
+                style="display: none;">
+                Cancel My Participation
+            </button>
+
+        </section>
+
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="compare.html" class="nav-item">Compare</a>
+        <a href="group-orders.html" class="nav-item">Group Orders</a>
+        <a href="order-status.html" class="nav-item active">My Orders</a>
+        <a href="profile.html" class="nav-item">Profile</a>
+    </nav>
+
+     <div class="modal-overlay" id="confirmModal">
+        <div class="modal-box">
+            <div class="warning-icon">!</div>
+            <h2>Cancel Participation?</h2>
+            <p>Are you sure you want to cancel your participation in this group order?</p>
+
+            <button type="button" id="confirmCancel" class="cancel-confirm-btn">
+                Yes, Cancel Participation
+            </button>
+
+            <button type="button" id="keepOrder" class="keep-btn">
+                Keep My Order
+            </button>
+        </div>
+    </div>
+
+     <div class="modal-overlay" id="successModal">
+        <div class="modal-box">
+            <div class="success-icon">✓</div>
+            <h2>Participation Cancelled!</h2>
+            <p>Your participation has been cancelled successfully.</p>
+
+            <button type="button" id="successContinue" class="modal-btn">
+                Continue
+            </button>
+        </div>
+    </div>
+
+    <script src="js/order-status.js"></script>
+</body>
+</html>

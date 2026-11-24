@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#075477">
+
+    <title>Water-Watch | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="brand">
+                <div class="brand-icon">
+                    <i class="fa-solid fa-droplet"></i>
+                </div>
+
+                <div class="brand-text">
+                    <h2>WATER-WATCH</h2>
+                    <span>Admin Portal</span>
+                </div>
+            </div>
+
+            <button
+                type="button"
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                aria-label="Open navigation menu"
+                aria-controls="navMenu"
+                aria-expanded="false">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+        <nav class="nav-menu" id="navMenu">
+
+            <a href="dashboard.html" class="nav-link active">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="orders.html" class="nav-link">
+                <i class="fa-solid fa-clipboard-list"></i>
+                <span>Orders</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <button
+                type="button"
+                class="nav-link logout-btn"
+                id="logoutBtn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+     <header class="topbar">
+
+    <div class="topbar-title">
+        <p id="currentDate"></p>
+    </div>
+
+    <div class="admin-profile">
+        <div class="profile-icon">
+            <i class="fa-solid fa-user-shield"></i>
+        </div>
+    </div>
+
+</header>
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <span>Total Group Orders</span>
+
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                    </div>
+                </div>
+
+                <h2 id="totalGroups">0</h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <span>Pending Orders</span>
+
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                </div>
+
+                <h2 id="pendingGroups">0</h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <span>Approved Orders</span>
+
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                </div>
+
+                <h2 id="approvedGroups">0</h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <span>Cancelled / Rejected</span>
+
+                    <div class="stat-icon red">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </div>
+                </div>
+
+                <h2 id="rejectedGroups">0</h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <span>Total Customers</span>
+
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                </div>
+
+                <h2 id="totalCustomers">0</h2>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+                    <span>Water Stations</span>
+
+                    <div class="stat-icon cyan">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                </div>
+
+                <h2 id="totalStations">6</h2>
+
+            </div>
+
+        </section>
+
+
+        <section class="dashboard-grid">
+
+            <div class="panel chart-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h3>Group Orders Trend</h3>
+                    </div>
+
+                    <span class="panel-icon">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </span>
+
+                </div>
+
+                <div class="chart-area" id="ordersChart">
+
+                    <div class="chart-empty">
+                        No order data available yet.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel station-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h3>Orders by Water Station</h3>
+                    </div>
+
+                    <span class="panel-icon">
+                        <i class="fa-solid fa-water"></i>
+                    </span>
+
+                </div>
+
+                <div id="stationSummary" class="station-summary">
+
+                    <div class="empty-state">
+                        Loading water stations...
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section class="panel recent-panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <h3>Recent Group Orders</h3>
+                </div>
+
+                <span class="panel-icon">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </span>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Water Station</th>
+                            <th>Created By</th>
+                            <th>Participants</th>
+                            <th>Date Created</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="recentOrdersBody">
+
+                        <tr>
+                            <td colspan="6" class="empty-table">
+                                No group orders found.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <footer class="footer">
+            © 2026 Water-Watch.
+        </footer>
+
+    </main>
+
+
+    <div
+        class="logout-modal-overlay"
+        id="logoutModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="logoutTitle">
+
+        <div class="logout-modal">
+
+            <div class="logout-modal-icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+
+            <h2 id="logoutTitle">
+                Confirm Logout
+            </h2>
+
+            <p>
+                Are you sure you want to logout?
+            </p>
+
+            <div class="logout-modal-buttons">
+
+                <button
+                    type="button"
+                    class="cancel-logout-btn"
+                    id="cancelLogoutBtn">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="button"
+                    class="confirm-logout-btn"
+                    id="confirmLogoutBtn">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const sidebar = document.getElementById("sidebar");
+
+        const mobileMenuBtn =
+            document.getElementById("mobileMenuBtn");
+
+
+        mobileMenuBtn.addEventListener("click", function () {
+
+            const isOpen =
+                sidebar.classList.toggle("menu-open");
+
+            mobileMenuBtn.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            mobileMenuBtn.setAttribute(
+                "aria-label",
+                isOpen ? "Close navigation menu" : "Open navigation menu"
+            );
+
+            mobileMenuBtn.innerHTML = isOpen
+                ? '<i class="fa-solid fa-xmark"></i>'
+                : '<i class="fa-solid fa-bars"></i>';
+
+        });
+
+
+        document.querySelectorAll("#navMenu .nav-link").forEach(link => {
+
+            link.addEventListener("click", function () {
+
+                sidebar.classList.remove("menu-open");
+
+                mobileMenuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                mobileMenuBtn.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+
+            });
+
+        });
+
+
+        document.addEventListener("click", function (event) {
+
+            if (
+                window.innerWidth <= 600 &&
+                !sidebar.contains(event.target)
+            ) {
+
+                sidebar.classList.remove("menu-open");
+
+                mobileMenuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                mobileMenuBtn.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+
+            }
+
+        });
+
+
+        window.addEventListener("resize", function () {
+
+            if (window.innerWidth > 600) {
+
+                sidebar.classList.remove("menu-open");
+
+                mobileMenuBtn.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                mobileMenuBtn.innerHTML =
+                    '<i class="fa-solid fa-bars"></i>';
+
+            }
+
+        });
+
+    </script>
+
+<script src="../js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>

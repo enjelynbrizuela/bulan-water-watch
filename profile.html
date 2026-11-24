@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bulan Water-Watch | My Profile</title>
+
+    <link rel="stylesheet" href="css/profile.css">
+
+</head>
+
+<body>
+ 
+
+    <main class="app-container">
+
+ 
+        <header class="app-header">
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open menu"
+                type="button"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-brand">
+
+                <h2>BULAN WATER WATCH</h2>
+
+                <p>BULAN, SORSOGON</p>
+
+            </div>
+
+        </header>
+
+
+ 
+        <div class="page-title">
+
+            <h1>My Profile</h1>
+
+        </div>
+ 
+
+        <section class="profile-card">
+
+            <div class="avatar" id="avatar">
+                U
+            </div>
+
+            <h2 id="profileName">
+                Customer Name
+            </h2>
+
+            <p id="profileEmail">
+                customer@email.com
+            </p>
+
+            <span class="account-badge">
+                Customer Account
+            </span>
+
+        </section>
+ 
+
+        <section class="info-card">
+
+            <div class="section-heading">
+
+                <h3>Personal Information</h3>
+
+                <button
+                    id="editBtn"
+                    class="edit-btn"
+                    type="button"
+                >
+                    Edit
+                </button>
+
+            </div>
+
+
+            <div class="info-group">
+
+                <label>Full Name</label>
+
+                <p id="displayName">
+                    Customer Name
+                </p>
+
+            </div>
+
+
+            <div class="info-group">
+
+                <label>Email Address</label>
+
+                <p id="displayEmail">
+                    customer@email.com
+                </p>
+
+            </div>
+
+
+            <div class="info-group">
+
+                <label>Phone Number</label>
+
+                <p id="displayPhone">
+                    Not provided
+                </p>
+
+            </div>
+
+        </section>
+ 
+
+        <section class="settings-card">
+
+            <h3>Account Settings</h3>
+
+
+            <button
+                id="changePasswordBtn"
+                class="setting-btn"
+                type="button"
+            >
+
+                <span>Change Password</span>
+
+                <span>›</span>
+
+            </button>
+
+
+            <button
+                id="logoutBtn"
+                class="setting-btn logout"
+                type="button"
+            >
+
+                <span>Logout</span>
+
+                <span>›</span>
+
+            </button>
+
+        </section>
+
+    </main>
+ 
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay"
+    ></div>
+
+ 
+
+    <aside
+        class="side-menu"
+        id="sideMenu"
+    >
+
+ 
+        <div class="menu-header">
+
+            <div class="menu-brand">
+
+                <div class="menu-logo">
+
+                    <svg
+                        viewBox="0 0 64 64"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+
+                        <path
+                            d="M32 4 C25 17 12 29 12 40
+                            C12 51 21 60 32 60
+                            C43 60 52 51 52 40
+                            C52 29 39 17 32 4Z"
+                            fill="#55BFCB"
+                        />
+
+                        <path
+                            d="M19 41 C25 35 31 47 38 41
+                            C43 37 47 39 49 40"
+                            fill="none"
+                            stroke="#fff"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                        />
+
+                    </svg>
+
+                </div>
+
+                <h2>BULAN WATER WATCH</h2>
+
+                <p>BULAN, SORSOGON</p>
+
+            </div>
+
+
+ 
+            <button
+                class="close-menu"
+                id="closeMenu"
+                aria-label="Close menu"
+                type="button"
+            >
+                &times;
+            </button>
+
+        </div>
+
+
+ 
+        <nav class="menu-links">
+
+            <a
+                href="compare.html"
+                class="menu-link"
+            >
+                Compare Prices
+            </a>
+
+
+            <a
+                href="group-orders.html"
+                class="menu-link"
+            >
+                Group Orders
+            </a>
+
+
+            <a
+                href="my-orders.html"
+                class="menu-link"
+            >
+                My Orders
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="menu-link active"
+            >
+                Profile
+            </a>
+
+        </nav>
+
+
+ 
+        <div class="menu-footer">
+
+            Bulan Water-Watch
+
+        </div>
+
+    </aside>
+ 
+    <div
+        class="modal-overlay"
+        id="editModal"
+    >
+
+        <div class="modal-box">
+
+            <h2>Edit Profile</h2>
+
+            <form id="editForm">
+
+                <div class="form-group">
+
+                    <label for="editName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="editName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="editPhone"
+                        placeholder="Enter phone number"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="modal-btn"
+                >
+                    Save Changes
+                </button>
+
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="closeEdit"
+                >
+                    Cancel
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+ 
+
+    <div
+        class="modal-overlay"
+        id="passwordModal"
+    >
+
+        <div class="modal-box">
+
+            <h2>Change Password</h2>
+
+            <form id="passwordForm">
+
+                <div class="form-group">
+
+                    <label for="oldPassword">
+                        Current Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="oldPassword"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="newPassword">
+                        New Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="newPassword"
+                        minlength="8"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm New Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        minlength="8"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="modal-btn"
+                >
+                    Update Password
+                </button>
+
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="closePassword"
+                >
+                    Cancel
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+ 
+
+    <div
+        class="modal-overlay"
+        id="logoutModal"
+    >
+
+        <div class="modal-box">
+
+            <div class="warning-icon">
+                !
+            </div>
+
+            <h2>Logout?</h2>
+
+            <p>
+                Are you sure you want to logout from your account?
+            </p>
+
+
+            <button
+                id="confirmLogout"
+                class="logout-confirm-btn"
+                type="button"
+            >
+                Yes, Logout
+            </button>
+
+
+            <button
+                id="cancelLogout"
+                class="cancel-btn"
+                type="button"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+ 
+
+    <div
+        class="modal-overlay"
+        id="successModal"
+    >
+
+        <div class="modal-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>Success!</h2>
+
+            <p id="successMessage">
+                Your changes have been saved.
+            </p>
+
+
+            <button
+                id="successContinue"
+                class="modal-btn"
+                type="button"
+            >
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+ 
+
+    <div
+        class="modal-overlay"
+        id="errorModal"
+    >
+
+        <div class="modal-box">
+
+            <div class="error-icon">
+                !
+            </div>
+
+            <h2>Error</h2>
+
+            <p id="errorMessage">
+                Something went wrong.
+            </p>
+
+
+            <button
+                id="closeError"
+                class="modal-btn"
+                type="button"
+            >
+                Try Again
+            </button>
+
+        </div>
+
+    </div>
+ 
+    <script>
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const closeMenu =
+            document.getElementById("closeMenu");
+
+        const sideMenu =
+            document.getElementById("sideMenu");
+
+        const menuOverlay =
+            document.getElementById("menuOverlay");
+
+
+        function openMenu() {
+
+            sideMenu.classList.add("show");
+
+            menuOverlay.classList.add("show");
+
+            document.body.classList.add("menu-open");
+
+        }
+
+
+        function hideMenu() {
+
+            sideMenu.classList.remove("show");
+
+            menuOverlay.classList.remove("show");
+
+            document.body.classList.remove("menu-open");
+
+        }
+
+
+        menuButton.addEventListener("click", openMenu);
+
+        closeMenu.addEventListener("click", hideMenu);
+
+        menuOverlay.addEventListener("click", hideMenu);
+
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                hideMenu();
+
+            }
+
+        });
+
+    </script>
+
+
+ 
+    <script src="js/profile.js"></script>
+
+</body>
+
+</html>

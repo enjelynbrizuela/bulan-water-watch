@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bulan Water-Watch | Group Orders</title>
+
+    <link rel="stylesheet" href="css/group-orders.css">
+</head>
+
+<body>
+
+    <main class="app-container">
+
+         <header class="app-header">
+
+            <button class="menu-button" id="menuButton" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-brand">
+                <h2>BULAN WATER WATCH</h2>
+                <p>BULAN, SORSOGON</p>
+            </div>
+
+        </header>
+
+         <section class="group-header">
+            <h1>Group Orders</h1>
+            <p>Join or create a group order.</p>
+        </section>
+
+        <section class="group-section">
+
+
+            <div id="createdGroups"></div>
+
+            <div id="noGroups" class="no-groups">
+                <h3>No group orders yet</h3>
+                <p>Be the first to create a group.</p>
+            </div>
+
+            <button
+                type="button"
+                class="new-group-btn"
+                id="newGroupBtn">
+                + Create Group Order
+            </button>
+
+        </section>
+
+    </main>
+
+     <div class="menu-overlay" id="menuOverlay"></div>
+
+     <aside class="side-menu" id="sideMenu">
+
+        <div class="menu-header">
+
+            <div class="menu-brand">
+
+                <div class="menu-logo">
+                    <svg viewBox="0 0 64 64"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <path
+                            d="M32 4 C25 17 12 29 12 40
+                            C12 51 21 60 32 60
+                            C43 60 52 51 52 40
+                            C52 29 39 17 32 4Z"
+                            fill="#55BFCB"
+                        />
+
+                        <path
+                            d="M19 41 C25 35 31 47 38 41
+                            C43 37 47 39 49 40"
+                            fill="none"
+                            stroke="#fff"
+                            stroke-width="3"
+                            stroke-linecap="round"
+                        />
+
+                    </svg>
+                </div>
+
+                <h2>BULAN WATER WATCH</h2>
+                <p>BULAN, SORSOGON</p>
+
+            </div>
+
+            <button
+                class="close-menu"
+                id="closeMenu"
+                aria-label="Close menu">
+                &times;
+            </button>
+
+        </div>
+
+        <nav class="menu-links">
+
+            <a href="compare.html" class="menu-link">
+                Compare Prices
+            </a>
+
+            <a href="group-orders.html" class="menu-link active">
+                Group Orders
+            </a>
+
+            <a href="my-orders.html" class="menu-link">
+                My Orders
+            </a>
+
+            <a href="profile.html" class="menu-link">
+                Profile
+            </a>
+
+        </nav>
+
+        <div class="menu-footer">
+            Bulan Water-Watch
+        </div>
+
+    </aside>
+
+     <div class="modal-overlay" id="successModal">
+
+        <div class="modal-box">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Successfully Joined!</h2>
+
+            <p id="successMessage">
+                You have joined the group order.
+            </p>
+
+            <button
+                type="button"
+                class="modal-btn"
+                id="successContinue">
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+     <div class="modal-overlay" id="errorModal">
+
+        <div class="modal-box">
+
+            <div class="error-icon">!</div>
+
+            <h2>Unable to Join</h2>
+
+            <p id="errorMessage">
+                Please enter a valid quantity.
+            </p>
+
+            <button
+                type="button"
+                class="modal-btn"
+                id="closeError">
+                Try Again
+            </button>
+
+        </div>
+
+    </div>
+
+     <script>
+        const menuButton = document.getElementById("menuButton");
+        const closeMenu = document.getElementById("closeMenu");
+        const sideMenu = document.getElementById("sideMenu");
+        const menuOverlay = document.getElementById("menuOverlay");
+
+        function openMenu() {
+            sideMenu.classList.add("show");
+            menuOverlay.classList.add("show");
+            document.body.classList.add("menu-open");
+        }
+
+        function hideMenu() {
+            sideMenu.classList.remove("show");
+            menuOverlay.classList.remove("show");
+            document.body.classList.remove("menu-open");
+        }
+
+        menuButton.addEventListener("click", openMenu);
+        closeMenu.addEventListener("click", hideMenu);
+        menuOverlay.addEventListener("click", hideMenu);
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                hideMenu();
+            }
+        });
+    </script>
+
+     <script src="../js/api.js"></script>
+    <script src="js/group-orders.js"></script>
+
+</body>
+</html>

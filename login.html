@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bulan Water-Watch - Login</title>
+
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+    <p class="brand">BULAN WATER WATCH</p>
+    <h1>Login Your Account</h1>
+</header>
+
+        <main class="content">
+
+            <form id="loginForm">
+
+                <div class="form-group">
+                    <label for="email">Email or Username</label>
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="Enter your email or username"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <div class="password-box">
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button type="button" id="togglePassword">
+                            Show
+                        </button>
+                    </div>
+                </div>
+
+                <div class="forgot">
+                    <a href="#" id="forgotPassword">
+                        Forgot password?
+                    </a>
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Sign in
+                </button>
+
+            </form>
+
+            <p class="register-text">
+                New here?
+                <a href="create-account.html">Create an account</a>
+            </p>
+
+            <div class="info-box">
+                Station Operator accounts are provided
+                exclusively by the system administrator.
+                Registration is only available for customers.
+            </div>
+
+        </main>
+    </div>
+
+     <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <div class="success-icon">✓</div>
+            <h2>Login Successful!</h2>
+            <p>
+                Welcome to Water Watch!
+                You have successfully signed in.
+            </p>
+            <button id="continueBtn" class="modal-btn">
+                Continue
+            </button>
+        </div>
+    </div>
+
+     <div class="modal-overlay" id="errorModal">
+        <div class="modal">
+            <div class="error-icon">!</div>
+            <h2>Login Failed</h2>
+            <p id="errorMessage">
+                Invalid email or password.
+            </p>
+            <button id="closeError" class="modal-btn">
+                Try Again
+            </button>
+        </div>
+    </div>
+
+     <div class="modal-overlay" id="forgotModal">
+        <div class="modal">
+            <div class="forgot-icon">?</div>
+            <h2>Forgot Password?</h2>
+            <p>
+                Please contact the Water Watch administrator
+                for password recovery assistance.
+            </p>
+            <button id="closeForgot" class="modal-btn">
+                Okay
+            </button>
+        </div>
+    </div>
+
+     <script src="js/login.js"></script>
+
+</body>
+</html>

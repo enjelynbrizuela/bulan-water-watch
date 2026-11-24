@@ -1,0 +1,217 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        160deg,
+        #e8faff 0%,
+        #c9f3f8 45%,
+        #a5e9f0 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 20px;
+}
+
+ body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 180%;
+    height: 180%;
+    left: -40%;
+    border-radius: 43%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    top: 48%;
+    background: rgba(67, 205, 218, 0.22);
+    animation: waterWave 12s linear infinite;
+}
+
+body::after {
+    top: 52%;
+    background: rgba(0, 174, 194, 0.15);
+    animation: waterWave 18s linear infinite reverse;
+}
+
+@keyframes waterWave {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+ .welcome-container {
+    width: 100%;
+    max-width: 430px;
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 28px;
+    padding: 30px 22px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 145, 165, 0.13);
+    position: relative;
+    z-index: 1;
+}
+
+ .logo {
+    color: #078fa5;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo-subtitle {
+    color: #55aebc;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 4px;
+}
+
+ .water-picture {
+    margin: 28px auto 24px;
+    height: 190px;
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        #b9f2f7,
+        #74dce8,
+        #35bfd1
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 170, 190, 0.15);
+}
+
+.water-picture::before,
+.water-picture::after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    left: -50%;
+    top: 65%;
+    border-radius: 40%;
+    background: rgba(255, 255, 255, 0.28);
+    animation: pictureWave 7s linear infinite;
+}
+
+.water-picture::after {
+    top: 72%;
+    background: rgba(0, 155, 180, 0.15);
+    animation-duration: 10s;
+    animation-direction: reverse;
+}
+
+@keyframes pictureWave {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.water-picture span {
+    font-size: 85px;
+    z-index: 2;
+    animation: floatingDrop 3s ease-in-out infinite;
+}
+
+@keyframes floatingDrop {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+ h1 {
+    color: #087f96;
+    font-size: 25px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.description {
+    color: #568b96;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+ .get-started {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #13b9ca, #078fae);
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 7px 18px rgba(0, 157, 180, 0.25);
+    transition: 0.3s ease;
+}
+
+.get-started:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0, 157, 180, 0.35);
+}
+
+.get-started span {
+    font-size: 20px;
+}
+
+ footer {
+    margin-top: 22px;
+    color: #72aab3;
+    font-size: 10px;
+}
+
+ @media (max-width: 480px) {
+    body {
+        padding: 18px;
+    }
+
+    .welcome-container {
+        padding: 27px 20px;
+        border-radius: 25px;
+    }
+
+    .water-picture {
+        height: 175px;
+        margin-top: 25px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+}
