@@ -1,3 +1,6 @@
+
+const API_BASE_URL = "https://bulan-water-watch.up.railway.app";
+
 const registerForm = document.getElementById("registerForm");
 
 const roleButtons = document.querySelectorAll(".role-btn");
@@ -10,6 +13,7 @@ const submitButton = registerForm.querySelector('[type="submit"]');
 
 let selectedRole = "Customer";
 
+// Role buttons
 roleButtons.forEach(button => {
     button.addEventListener("click", () => {
         roleButtons.forEach(btn => btn.classList.remove("active"));
@@ -18,6 +22,7 @@ roleButtons.forEach(button => {
     });
 });
 
+// Registration
 registerForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -51,24 +56,29 @@ registerForm.addEventListener("submit", async function (e) {
     submitButton.textContent = "Creating account...";
 
     try {
-        const response = await fetch("/api/auth/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                fullname,
-                email,
-                phone,
-                password,
-                confirmPassword
-            })
-        });
+        const response = await fetch(
+            `${API_BASE_URL}/api/auth/register`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    fullname,
+                    email,
+                    phone,
+                    password,
+                    confirmPassword
+                })
+            }
+        );
 
         const data = await response.json();
 
         if (!response.ok || !data.success) {
-            throw new Error(data.message || "Registration failed.");
+            throw new Error(
+                data.message || "Registration failed."
+            );
         }
 
         registerForm.reset();
@@ -80,25 +90,34 @@ registerForm.addEventListener("submit", async function (e) {
         }
 
         selectedRole = "Customer";
+
         successModal.classList.add("show");
 
     } catch (error) {
-        showError(error.message || "Unable to connect to the server.");
+        console.error("Registration error:", error);
+
+        showError(
+            error.message || "Unable to connect to the server."
+        );
+
     } finally {
         submitButton.disabled = false;
         submitButton.textContent = "Create account";
     }
 });
 
+// Show error modal
 function showError(message) {
     errorMessage.textContent = message;
     errorModal.classList.add("show");
 }
 
+// Close error modal
 closeError.addEventListener("click", () => {
     errorModal.classList.remove("show");
 });
 
+// Close modal when clicking outside
 errorModal.addEventListener("click", e => {
     if (e.target === errorModal) {
         errorModal.classList.remove("show");

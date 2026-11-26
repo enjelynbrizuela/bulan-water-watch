@@ -1,5 +1,5 @@
 
-const API_BASE_URL = "http://localhost:3000/api";
+const API_BASE_URL = "https://bulan-water-watch.up.railway.app/api";
 
 function getAuthToken() {
     return sessionStorage.getItem("waterWatchToken");
@@ -34,7 +34,7 @@ async function apiRequest(endpoint, options = {}) {
     }
 
     if (!response.ok) {
-        if (response.status === 401) {
+        if (response.status === 401 || response.status === 403) {
             sessionStorage.removeItem("waterWatchToken");
             sessionStorage.removeItem("waterWatchCurrentUser");
         }

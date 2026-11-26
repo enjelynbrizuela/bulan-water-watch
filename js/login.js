@@ -41,8 +41,10 @@ const submitButton = loginForm.querySelector('[type="submit"]');
     submitButton.textContent = "Signing in...";
 
     try {
-        const response = await fetch("/api/auth/login", {
-            method: "POST",
+        const API_BASE_URL = "https://bulan-water-watch.up.railway.app";
+
+const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+        method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },

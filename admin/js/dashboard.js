@@ -92,9 +92,10 @@ function escapeHTML(value) {
     });
 }
 
+const API_BASE_URL = "https://bulan-water-watch.up.railway.app";
 
 async function apiRequest(endpoint) {
-    const response = await fetch(endpoint, {
+    const response = await fetch(`${API_BASE_URL}${endpoint}`, {
         method: "GET",
         headers: {
             "Authorization": "Bearer " + adminToken,
@@ -121,7 +122,6 @@ async function apiRequest(endpoint) {
 
     return data;
 }
-
 
 function getAdminStatus(group) {
     const status = String(

@@ -1,4 +1,4 @@
-const API_BASE = "/api";
+const API_BASE = "https://bulan-water-watch.up.railway.app/api";
 
 const token = sessionStorage.getItem("waterWatchToken");
 
